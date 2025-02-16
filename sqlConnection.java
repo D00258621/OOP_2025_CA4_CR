@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class sqlConnection {
-    public static final String URL = "jdbc:mysql://localhost:3306/";
+    public static final String URL = "jdbc:mysql://localhost:3306/finance_tracker";
     public static final String USER = "root";
     public static final String PASSWORD = "";
 
