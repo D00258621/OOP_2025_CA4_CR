@@ -1,14 +1,14 @@
-package CA4_CR;
+package CA4_CR.DTO;
 
 import java.util.Date;
 
-public class income {
+public class incomesDTO {
     private int incomeID;
     private String title;
     private double amount;
     private Date dateEarned;
 
-    public income(int incomeID, String incomeTitle, double amount, Date dateEarned) {
+    public incomesDTO(int incomeID, String incomeTitle, double amount, Date dateEarned) {
         this.incomeID = incomeID;
         this.title = incomeTitle;
         this.amount = amount;

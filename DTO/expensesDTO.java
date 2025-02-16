@@ -1,8 +1,8 @@
-package CA4_CR;
+package CA4_CR.DTO;
 
 import java.util.Date;
 
-public class expenses {
+public class expensesDTO {
     private int expenseID;
     private String title;
     private String category;
@@ -10,7 +10,7 @@ public class expenses {
     private Date dateIncurred;
 
     // Constructor
-    public expenses(int expenseID, String title, String category, double amount, Date dateIncurred) {
+    public expensesDTO(int expenseID, String title, String category, double amount, Date dateIncurred) {
         this.expenseID = expenseID;
         this.title = title;
         this.category = category;
