@@ -9,26 +9,26 @@ public class expensesDAO {
         String sql = "INSERT INTO expenses (title, category, amount, dateIncurred) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = sqlConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, expenses.getTitle());
-            stmt.setString(2, expenses.getCategory());
-            stmt.setDouble(3, expenses.getAmount());
-            stmt.setDate(4, new java.sql.Date(expenses.getDateIncurred().getTime()));
+            ps.setString(1, expenses.getTitle());
+            ps.setString(2, expenses.getCategory());
+            ps.setDouble(3, expenses.getAmount());
+            ps.setDate(4, new java.sql.Date(expenses.getDateIncurred().getTime()));
 
-            stmt.executeUpdate();
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    public List<expensesDTO> getAllExpenses() {
+    // List all income
+    public static List<expensesDTO> getAllExpenses() {
         List<expensesDTO> expenses = new ArrayList<>();
         String sql = "SELECT * FROM expenses";
 
         try (Connection conn = sqlConnection.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+             Statement ps = conn.createStatement();
+             ResultSet rs = ps.executeQuery(sql)) {
 
             while (rs.next()) {
                 expenses.add(new expensesDTO(
@@ -44,5 +44,20 @@ public class expensesDAO {
         }
         return expenses;
     }
+
+    // Delete an expense by ID
+    public static void deleteExpense(int expenseID) {
+        String sql = "DELETE FROM expenses WHERE expenseID = ?";
+
+        try (Connection conn = sqlConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, expenseID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
