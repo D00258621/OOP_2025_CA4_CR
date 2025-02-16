@@ -9,6 +9,7 @@ public class expenses {
     private double amount;
     private Date dateIncurred;
 
+    // Constructor
     public expenses(int expenseID, String title, String category, double amount, Date dateIncurred) {
         this.expenseID = expenseID;
         this.title = title;
@@ -17,6 +18,7 @@ public class expenses {
         this.dateIncurred = dateIncurred;
     }
 
+    // Getters and Setters
     public int getExpenseID() {return expenseID;}
     public void setExpenseID(int expenseID) {this.expenseID = expenseID;}
 
