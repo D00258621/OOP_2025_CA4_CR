@@ -1,4 +1,4 @@
-package CA4_CR.DTO;
+package CA4_CR;
 
 import java.util.Date;
 
